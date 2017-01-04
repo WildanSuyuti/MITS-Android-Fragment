@@ -1,12 +1,8 @@
 package com.mits.kakaroto.fragment.fitur;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +19,17 @@ import com.mits.kakaroto.fragment.model.Movie;
 public class DetailMovieFragment extends Fragment {
     private TextView showTitle, showGenre, showYear, showCountry, showDuration;
     private ImageView showImage;
+
+    public static Fragment newInstance(Movie data){
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("movie", data);
+
+        DetailMovieFragment fragment = new DetailMovieFragment();
+        fragment.setArguments(bundle);
+
+        return fragment;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,13 +49,12 @@ public class DetailMovieFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        ActionBar actionBar = activity.getSupportActionBar();
         Bundle bundle = getArguments();
 
         if (bundle != null) {
             Movie movie = bundle.getParcelable("movie");
-            actionBar.setTitle(movie.getTitle());
+            assert movie != null;
+            ((MainActivity) getActivity()).setActionBarTitle(movie.getTitle());
 
             showTitle.setText(movie.getTitle());
             showGenre.setText(movie.getGenre());
