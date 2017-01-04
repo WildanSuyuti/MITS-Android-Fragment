@@ -5,22 +5,18 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
-
+import com.mits.kakaroto.fragment.R;
 import com.mits.kakaroto.fragment.adapter.MovieAdapter;
 import com.mits.kakaroto.fragment.model.Movie;
 import com.mits.kakaroto.fragment.utility.RecyclerTouchListener;
 import com.mits.kakaroto.fragment.utility.SpacesItemDecoration;
-import com.mits.kakaroto.fragment.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,16 +45,8 @@ public class FavoriteFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        ActionBar actionBar = activity.getSupportActionBar();
-        actionBar.setTitle("Favorite");
-        ImageView imgHome = (ImageView) activity.findViewById(R.id.img_home);
-        ImageView imgFavorite = (ImageView) activity.findViewById(R.id.img_favorite);
-        ImageView imgProfile = (ImageView) activity.findViewById(R.id.img_profile);
-
-        imgProfile.setImageResource(R.drawable.person);
-        imgHome.setImageResource(R.drawable.home);
-        imgFavorite.setImageResource(R.drawable.favorite_red);
+        ((MainActivity) getActivity()).setActionBarTitle("Favorite");
+        ((MainActivity) getActivity()).setActivePage(MainActivity.PAGE_FAVORITE);
     }
 
     private void initView() {
@@ -81,14 +69,8 @@ public class FavoriteFragment extends Fragment {
                     @Override
                     public void onClick(View view, int position) {
                         Movie movie = adapter.getItem(position);
-                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                        DetailMovieFragment fragment = new DetailMovieFragment();
-                        Bundle bundle = new Bundle();
-                        bundle.putParcelable("movie", movie);
-                        fragment.setArguments(bundle);;
-                        fragmentTransaction.replace(R.id.container, fragment);
-                        fragmentTransaction.addToBackStack(null);
-                        fragmentTransaction.commit();
+                        ((MainActivity) getActivity())
+                                .openFragment(DetailMovieFragment.newInstance(movie));
                     }
 
                     @Override
