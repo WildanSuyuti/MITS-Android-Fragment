@@ -54,7 +54,7 @@ public class DetailMovieFragment extends Fragment {
         if (bundle != null) {
             Movie movie = bundle.getParcelable("movie");
             assert movie != null;
-            ((MainActivity) getActivity()).setActionBarTitle(movie.getTitle());
+            ((NavDrawerActivity) getActivity()).setActionBarTitle(movie.getTitle());
 
             showTitle.setText(movie.getTitle());
             showGenre.setText(movie.getGenre());

@@ -25,8 +25,8 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        ((MainActivity) getActivity()).setActionBarTitle("Profile");
-        ((MainActivity) getActivity()).setActivePage(MainActivity.PAGE_PROFILE);
+        ((NavDrawerActivity) getActivity()).setActionBarTitle("Profile");
+        ((NavDrawerActivity) getActivity()).setActivePage(NavDrawerActivity.PAGE_PROFILE);
     }
 
 }

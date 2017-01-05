@@ -6,7 +6,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
 
         <ImageView
             android:id="@+id/img_film"
@@ -25,6 +26,7 @@
             android:text="Title"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:textColor="@color/colorPrimaryText"
             android:layout_toRightOf="@+id/img_film"
             />
 
@@ -35,6 +37,7 @@
             android:text="Genre"
             android:textSize="15sp"
             android:textStyle="bold"
+            android:textColor="@color/colorPrimaryText"
             android:layout_marginBottom="5dp"
             android:layout_below="@+id/tv_title"
             android:layout_toRightOf="@+id/img_film"
@@ -48,6 +51,7 @@
             android:textSize="15sp"
             android:layout_marginBottom="5dp"
             android:textStyle="bold"
+            android:textColor="@color/colorPrimaryText"
             android:layout_toRightOf="@+id/img_film"
             android:layout_below="@+id/tv_genre"
             />
@@ -59,6 +63,7 @@
             android:text="Japan"
             android:textSize="15sp"
             android:textStyle="bold"
+            android:textColor="@color/colorPrimaryText"
             android:layout_toRightOf="@+id/img_film"
             android:layout_below="@+id/tv_year"
             />
@@ -70,6 +75,7 @@
             android:text="1:40:52"
             android:textSize="15sp"
             android:textStyle="bold"
+            android:textColor="@color/colorPrimaryText"
             android:layout_toRightOf="@+id/img_film"
             android:layout_below="@+id/tv_country"
             android:layout_marginBottom="@dimen/activity_horizontal_margin"

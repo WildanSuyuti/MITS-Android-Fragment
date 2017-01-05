@@ -45,8 +45,8 @@ public class FavoriteFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        ((MainActivity) getActivity()).setActionBarTitle("Favorite");
-        ((MainActivity) getActivity()).setActivePage(MainActivity.PAGE_FAVORITE);
+        ((NavDrawerActivity) getActivity()).setActionBarTitle("Favorite");
+        ((NavDrawerActivity) getActivity()).setActivePage(NavDrawerActivity.PAGE_FAVORITE);
     }
 
     private void initView() {
@@ -69,7 +69,7 @@ public class FavoriteFragment extends Fragment {
                     @Override
                     public void onClick(View view, int position) {
                         Movie movie = adapter.getItem(position);
-                        ((MainActivity) getActivity())
+                        ((NavDrawerActivity) getActivity())
                                 .openFragment(DetailMovieFragment.newInstance(movie));
                     }
 

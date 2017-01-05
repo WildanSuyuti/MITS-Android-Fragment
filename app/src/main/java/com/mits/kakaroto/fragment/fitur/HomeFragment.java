@@ -46,8 +46,8 @@ public class HomeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        ((MainActivity) getActivity()).setActionBarTitle("Home");
-        ((MainActivity) getActivity()).setActivePage(MainActivity.PAGE_HOME);
+        ((NavDrawerActivity) getActivity()).setActionBarTitle("Home");
+        ((NavDrawerActivity) getActivity()).setActivePage(NavDrawerActivity.PAGE_HOME);
     }
 
     private void initView() {
@@ -78,7 +78,7 @@ public class HomeFragment extends Fragment {
                     public void onClick(View view, int position) {
                         Movie movie = adapter.getItem(position);
 
-                        ((MainActivity) getActivity())
+                        ((NavDrawerActivity) getActivity())
                                 .openFragment(DetailMovieFragment.newInstance(movie));
                     }
 
