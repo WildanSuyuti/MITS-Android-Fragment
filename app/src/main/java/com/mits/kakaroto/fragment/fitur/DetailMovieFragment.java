@@ -32,7 +32,8 @@ public class DetailMovieFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_detail_movie, container, false);
 
         showTitle = (TextView) rootView.findViewById(R.id.tv_showTitle);

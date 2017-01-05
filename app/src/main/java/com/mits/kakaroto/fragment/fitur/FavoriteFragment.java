@@ -31,7 +31,8 @@ public class FavoriteFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_favorite, container, false);
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_viewFavorite);
@@ -55,9 +56,12 @@ public class FavoriteFragment extends Fragment {
         list = new ArrayList<>();
 
         list.add(new Movie("Trolls", "Comedy", "2016", "USA", "1:30:55", R.drawable.comedy_trolls));
-        list.add(new Movie("Baked in Brooklyn", "Comedy", "2016", "USA", "1:40:32", R.drawable.comedy_baked_in_brooklyn));
-        list.add(new Movie("Bounty Hunter", "Action", "2016", "China", "1:40:21", R.drawable.action_bounty_hunters));
-        list.add(new Movie("Dragon Ball", "Anime", "2015", "Japan", "1:33:57", R.drawable.anime_dragon_ball_resurrection_f));
+        list.add(new Movie("Baked in Brooklyn", "Comedy", "2016", "USA", "1:40:32",
+                R.drawable.comedy_baked_in_brooklyn));
+        list.add(new Movie("Bounty Hunter", "Action", "2016", "China", "1:40:21",
+                R.drawable.action_bounty_hunters));
+        list.add(new Movie("Dragon Ball", "Anime", "2015", "Japan", "1:33:57",
+                R.drawable.anime_dragon_ball_resurrection_f));
 
         adapter = new MovieAdapter(list);
         recyclerView.setLayoutManager(new LinearLayoutManager(thisContext));
